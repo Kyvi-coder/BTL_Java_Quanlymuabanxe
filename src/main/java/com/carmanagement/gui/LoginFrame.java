@@ -10,7 +10,7 @@ public class LoginFrame extends JFrame {
         setSize(700,450);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        BackgroundPanel panel = new BackgroundPanel();
+        com.carmanagement.gui.BackgroundPanel panel = new com.carmanagement.gui.BackgroundPanel();
         panel.setLayout(new GridBagLayout());
         JPanel form = new JPanel();
         form.setLayout(new GridLayout(4,2,10,10));
@@ -41,7 +41,7 @@ public class LoginFrame extends JFrame {
         LoginService service = new LoginService();
         if(service.login(user,pass)){
             JOptionPane.showMessageDialog(this,"Login Success");
-            new DashboardFrame().setVisible(true);
+            new com.carmanagement.gui.DashboardFrame().setVisible(true);
             this.dispose();
         } else{
             JOptionPane.showMessageDialog(this,"Wrong username or password");
