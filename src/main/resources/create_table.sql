@@ -21,19 +21,11 @@ CREATE TABLE Product(
 id_product VARCHAR(15) PRIMARY KEY,
 price_product VARCHAR(15) NOT NULL,
 name_product VARCHAR(30) NOT NULL,
-<<<<<<< HEAD
 brand_product VARCHAR(15) NOT NULL,
 color_product VARCHAR(10) NOT NULL,
 stock_quantity_product VARCHAR(10) NOT NULL,
 VIN_product VARCHAR(20) UNIQUE NOT NULL,
 prodution_year_product VARCHAR(5) NOT NULL
-=======
-brand VARCHAR(15) NOT NULL,
-color VARCHAR(10) NOT NULL,
-stock_quantity VARCHAR(10) NOT NULL,
-VIN VARCHAR(20) UNIQUE NOT NULL,
-production_year VARCHAR(5) NOT NULL
->>>>>>> 08c7a307a673ecf94caafaec85e1c8eb15f95179
 );
 
 CREATE TABLE Invoice(
