@@ -25,7 +25,7 @@ brand VARCHAR(15) NOT NULL,
 color VARCHAR(10) NOT NULL,
 stock_quantity VARCHAR(10) NOT NULL,
 VIN VARCHAR(20) UNIQUE NOT NULL,
-prodution_year VARCHAR(5) NOT NULL
+production_year VARCHAR(5) NOT NULL
 );
 
 CREATE TABLE Invoice(
