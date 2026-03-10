@@ -80,7 +80,7 @@ public class Product {
     }
 
     public void setPirce_product(float pirce_product) {
-        this.pirce_product = pirce_product;
+        this.price_product = pirce_product;
     }
 
     public void setColor_product(String color_product) {
