@@ -12,7 +12,7 @@ public class Product {
     private String id_product;
     private String name_product;
     private String brand_product;
-    private float pirce_product;
+    private float price_product;
     private String color_product;
     private double stock_quantity_product;
     private String engine_type_product;
@@ -23,7 +23,7 @@ public class Product {
         this.id_product = id_product;
         this.name_product = name_product;
         this.brand_product = brand_product;
-        this.pirce_product = pirce_product;
+        this.price_product = pirce_product;
         this.color_product = color_product;
         this.stock_quantity_product = stock_quantity_product;
         this.engine_type_product = engine_type_product;
@@ -44,7 +44,7 @@ public class Product {
     }
 
     public float getPirce_product() {
-        return pirce_product;
+        return price_product;
     }
 
     public String getColor_product() {

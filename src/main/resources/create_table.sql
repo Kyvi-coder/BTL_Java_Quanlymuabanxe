@@ -19,13 +19,13 @@ hiredate_employee VARCHAR(15) NOT NULL
 
 CREATE TABLE Product(
 id_product VARCHAR(15) PRIMARY KEY,
-price VARCHAR(15) NOT NULL,
+price_product VARCHAR(15) NOT NULL,
 name_product VARCHAR(30) NOT NULL,
-brand VARCHAR(15) NOT NULL,
-color VARCHAR(10) NOT NULL,
-stock_quantity VARCHAR(10) NOT NULL,
-VIN VARCHAR(20) UNIQUE NOT NULL,
-prodution_year VARCHAR(5) NOT NULL
+brand_product VARCHAR(15) NOT NULL,
+color_product VARCHAR(10) NOT NULL,
+stock_quantity_product VARCHAR(10) NOT NULL,
+VIN_product VARCHAR(20) UNIQUE NOT NULL,
+prodution_year_product VARCHAR(5) NOT NULL
 );
 
 CREATE TABLE Invoice(
