@@ -32,10 +32,10 @@ FOREIGN KEY (id_employee) REFERENCES Employee(id_employee)
 -- Product
 CREATE TABLE Product(
 id_product VARCHAR(15) PRIMARY KEY,
-price_product INT NOT NULL,
 name_product VARCHAR(30) NOT NULL,
 brand_product VARCHAR(15) NOT NULL,
 color_product VARCHAR(10) NOT NULL,
+price_product INT NOT NULL,
 stock_quantity_product INT NOT NULL,
 VIN_product VARCHAR(20) UNIQUE NOT NULL,
 production_year_product YEAR NOT NULL

@@ -7,6 +7,7 @@
     <list default="true" id="e212e10f-8f50-4e07-8b07-b42a716b7564" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/create_table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/create_table.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/insert_data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/insert_data.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +141,10 @@
       <workItem from="1773110370202" duration="4223000" />
       <workItem from="1773121854913" duration="1229000" />
       <workItem from="1773132443049" duration="4316000" />
-      <workItem from="1773140864455" duration="7102000" />
+      <workItem from="1773140864455" duration="7364000" />
+      <workItem from="1773193843265" duration="6227000" />
+      <workItem from="1773207834601" duration="603000" />
+      <workItem from="1773225795000" duration="2298000" />
     </task>
     <servers />
   </component>
