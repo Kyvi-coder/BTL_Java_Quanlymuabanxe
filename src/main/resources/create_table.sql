@@ -36,16 +36,25 @@ name_product VARCHAR(30) NOT NULL,
 brand_product VARCHAR(15) NOT NULL,
 color_product VARCHAR(10) NOT NULL,
 price_product INT NOT NULL,
-stock_quantity_product INT NOT NULL,
-VIN_product VARCHAR(20) UNIQUE NOT NULL,
 production_year_product YEAR NOT NULL
 );
+
+
+-- Vehicle
+CREATE TABLE Vehicle(
+VIN VARCHAR(20) PRIMARY KEY,
+id_product VARCHAR(15) NOT NULL,
+
+FOREIGN KEY (id_product) REFERENCES Product(id_product)
+);
+
 
 -- Invoice
 CREATE TABLE Invoice(
 id_invoice VARCHAR(15) PRIMARY KEY,
 date_invoice DATETIME NOT NULL,
 total_amount_invoice INT NOT NULL,
+payment_method VARCHAR(20),
 id_customer VARCHAR(15),
 id_employee VARCHAR(15),
 
@@ -55,15 +64,14 @@ FOREIGN KEY (id_employee) REFERENCES Employee(id_employee)
 
 -- Invoice_Detail
 CREATE TABLE Invoice_Detail(
-price_detail INT NOT NULL,
+id_invoice VARCHAR(15),
+VIN VARCHAR(20),
 quantity INT NOT NULL,
-id_invoice VARCHAR(15) NOT NULL,
-id_product VARCHAR(15) NOT NULL,
 
-PRIMARY KEY (id_invoice, id_product),
+PRIMARY KEY (id_invoice, VIN),
 
 FOREIGN KEY (id_invoice) REFERENCES Invoice(id_invoice),
-FOREIGN KEY (id_product) REFERENCES Product(id_product)
+FOREIGN KEY (VIN) REFERENCES Vehicle(VIN)
 );
 
 -- Payment
@@ -72,18 +80,16 @@ id_payment VARCHAR(15) PRIMARY KEY,
 id_invoice VARCHAR(15) NOT NULL,
 payment_date DATETIME NOT NULL,
 payment_method VARCHAR(20) NOT NULL,
-amount DECIMAL(15,2) NOT NULL,
-
+amount INT NOT NULL,
 FOREIGN KEY (id_invoice) REFERENCES Invoice(id_invoice)
 );
 
 -- Warranty
 CREATE TABLE Warranty(
 id_warranty VARCHAR(15) PRIMARY KEY,
-id_product VARCHAR(15),
-start_date_warranty DATE NOT NULL,
-end_date_warranty DATE NOT NULL,
-status_warranty VARCHAR(20) NOT NULL,
+VIN VARCHAR(20) NOT NULL,
+start_date DATE NOT NULL,
+end_date DATE NOT NULL,
 
-FOREIGN KEY (id_product) REFERENCES Product(id_product)
+FOREIGN KEY (VIN) REFERENCES Vehicle(VIN)
 );
