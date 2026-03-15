@@ -8,9 +8,9 @@ INSERT INTO Customer VALUES
 SELECT * FROM Customer;
 
 INSERT INTO Employee VALUES 
-("NVSTVT01","Tran Van Trung","0369125478","Sale","2019-12-23"),
-('NVSPVH02','Pham Van Hung','0922222222','Sales','2023-05-15'),
-('NVMLVN03','Le Van Nam','0911111111','Manager','2023-01-10');
+("NVSTVT01","Tran Van Trung","0369125478","Sale","2019-12-23","active"),
+('NVSPVH02','Pham Van Hung','0922222222','Sales','2023-05-15',"active"),
+('NVMLVN03','Le Van Nam','0911111111','Manager','2023-01-10',"active");
 
 SELECT * FROM Employee;
 

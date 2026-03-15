@@ -17,6 +17,10 @@ phone_employee VARCHAR(10) UNIQUE NOT NULL,
 position_employee VARCHAR(20) NOT NULL, 
 hiredate_employee DATE NOT NULL 
 );
+-- thêm cột trạng thái của nhân viên để check nghỉ việc hay vẫn đang làm 
+ALTER TABLE Employee
+ADD status_employee VARCHAR(10);
+
 
 -- Account
 CREATE TABLE Account(

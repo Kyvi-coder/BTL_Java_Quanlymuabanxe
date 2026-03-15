@@ -24,7 +24,7 @@ public class Customer {
     }
     public void setName_customer(String name_customer) {
         this.name_customer = name_customer;
-    }
+    }q
     public int getPhone_customer() {
         return phone_customer;
     }
