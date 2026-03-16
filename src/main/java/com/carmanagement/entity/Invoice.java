@@ -13,18 +13,20 @@ public class Invoice {
     private String id_invoice;
     private String id_customer;
     private String id_employee;
-    private String id_product;
     private LocalDate date_invoice;
     private double total_amount_invoice;
+    Payment payment;
 
-    public Invoice(String id_invoice, String id_customer, String id_employee, String id_product, LocalDate date_invoice, double total_amount_invoice) {
+    public Invoice(String id_invoice, String id_customer, String id_employee, LocalDate date_invoice, double total_amount_invoice, Payment payment) {
         this.id_invoice = id_invoice;
         this.id_customer = id_customer;
         this.id_employee = id_employee;
-        this.id_product = id_product;
+
         this.date_invoice = date_invoice;
         this.total_amount_invoice = total_amount_invoice;
+        this.payment = payment;
     }
+    public Invoice() {}
 
     public String getId_invoice() {
         return id_invoice;
@@ -38,9 +40,6 @@ public class Invoice {
         return id_employee;
     }
 
-    public String getId_product() {
-        return id_product;
-    }
 
     public LocalDate getDate_invoice() {
         return date_invoice;
@@ -62,12 +61,16 @@ public class Invoice {
         this.id_employee = id_employee;
     }
 
-    public void setId_product(String id_product) {
-        this.id_product = id_product;
-    }
 
     public void setDate_invoice(LocalDate date_invoice) {
         this.date_invoice = date_invoice;
+    }
+
+    public Payment getPayment() {
+        return payment;
+    }
+    public void setPayment(Payment payment) {
+        this.payment = payment;
     }
 
     public void setTotal_amount_invoice(double total_amount_invoice) {

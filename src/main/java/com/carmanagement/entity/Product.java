@@ -14,20 +14,14 @@ public class Product {
     private String brand_product;
     private float price_product;
     private String color_product;
-    private double stock_quantity_product;
-    private String engine_type_product;
-    private String VIN_product;
     private int prodution_year_product;
 
-    public Product(String id_product, String name_product, String brand_product, float pirce_product, String color_product, double stock_quantity_product, String engine_type_product, String VIN_prouct, int prodution_year_product) {
+    public Product(String id_product, String name_product, String brand_product, float price_product, String color_product,int prodution_year_product) {
         this.id_product = id_product;
         this.name_product = name_product;
         this.brand_product = brand_product;
-        this.price_product = pirce_product;
+        this.price_product = price_product;
         this.color_product = color_product;
-        this.stock_quantity_product = stock_quantity_product;
-        this.engine_type_product = engine_type_product;
-        this.VIN_product = VIN_prouct;
         this.prodution_year_product = prodution_year_product;
     }
 
@@ -51,17 +45,8 @@ public class Product {
         return color_product;
     }
 
-    public double getStock_quantity_product() {
-        return stock_quantity_product;
-    }
 
-    public String getEngine_type_product() {
-        return engine_type_product;
-    }
 
-    public String getVIN_prouct() {
-        return VIN_product;
-    }
 
     public int getProdution_year_product() {
         return prodution_year_product;
@@ -87,17 +72,7 @@ public class Product {
         this.color_product = color_product;
     }
 
-    public void setStock_quantity_product(double stock_quantity_product) {
-        this.stock_quantity_product = stock_quantity_product;
-    }
 
-    public void setEngine_type_product(String engine_type_product) {
-        this.engine_type_product = engine_type_product;
-    }
-
-    public void setVIN_prouct(String VIN_prouct) {
-        this.VIN_product = VIN_prouct;
-    }
 
     public void setProdution_year_product(int prodution_year_product) {
         this.prodution_year_product = prodution_year_product;
