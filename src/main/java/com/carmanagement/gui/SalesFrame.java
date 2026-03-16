@@ -2,7 +2,7 @@ package com.carmanagement.gui;
 import javax.swing.*;
 import java.awt.*;
 import com.carmanagement.service.SaleService;
-public class SaleFrame extends JFrame {
+public class SalesFrame extends JFrame {
 
     JTextField txtCustomerName;
     JTextField txtPhone;
@@ -22,7 +22,7 @@ public class SaleFrame extends JFrame {
 
     JComboBox paymentMethod;
 
-    public SaleFrame(){
+    public SalesFrame(){
 
         setTitle("Bán xe");
         setSize(800,600);

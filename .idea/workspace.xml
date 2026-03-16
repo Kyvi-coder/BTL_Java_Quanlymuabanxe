@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e212e10f-8f50-4e07-8b07-b42a716b7564" name="Changes" comment="" />
+    <list default="true" id="e212e10f-8f50-4e07-8b07-b42a716b7564" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Merc.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Vin.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/HomeFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/HomeFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/LoginFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/LoginFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/SaleFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/SalesFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/service/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/service/LoginService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Honda.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Vios.webp" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,6 +29,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -28,8 +39,8 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Kyvi-coder/BTL_Java_Quanlymuabanxe.git&quot;,
-    &quot;accountId&quot;: &quot;85868e8f-f73b-48c2-a192-a9ecff2b56d1&quot;
+    &quot;url&quot;: &quot;https://github.com/Kyvi-coder/BTL_Java_Quanlymuabanxe&quot;,
+    &quot;accountId&quot;: &quot;2ed09937-a4d2-4098-8b73-3c1d7066e0f0&quot;
   }
 }</component>
   <component name="McpProjectServerCommands">
@@ -51,7 +62,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
-    "Application.com.carmanagement.Main.executor": "Debug",
+    "Application.com.carmanagement.Main.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -59,7 +70,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
@@ -158,7 +169,7 @@
       <workItem from="1773225795000" duration="7408000" />
       <workItem from="1773317424090" duration="604000" />
       <workItem from="1773373662238" duration="614000" />
-      <workItem from="1773645498240" duration="8273000" />
+      <workItem from="1773645498240" duration="9216000" />
     </task>
     <servers />
   </component>
