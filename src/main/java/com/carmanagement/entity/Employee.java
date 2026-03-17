@@ -14,11 +14,11 @@ public class Employee {
 
     private String id_employee;
     private String name_employee;
-    private double phone_employee;
+    private String phone_employee;
     private String position_employee;
     private LocalDate hiredate_employee;
     private String status_employee;
-    public Employee(String id_employee, String name_employee, double phone_employee, String position_employee, LocalDate hiredate_employee, String status_employee) {
+    public Employee(String id_employee, String name_employee, String phone_employee, String position_employee, LocalDate hiredate_employee, String status_employee) {
         this.id_employee = id_employee;
         this.name_employee = name_employee;
         this.phone_employee = phone_employee;
@@ -26,6 +26,7 @@ public class Employee {
         this.hiredate_employee = hiredate_employee;
         this.status_employee = status_employee;
     }
+    public Employee() {}
         public String getId_employee() {
         return id_employee;
     }
@@ -34,7 +35,7 @@ public class Employee {
         return name_employee;
     }
 
-    public double getPhone_employee() {
+    public String getPhone_employee() {
         return phone_employee;
     }
 
@@ -54,7 +55,7 @@ public class Employee {
         this.name_employee = name_employee;
     }
 
-    public void setPhone_employee(double phone_employee) {
+    public void setPhone_employee(String phone_employee) {
         this.phone_employee = phone_employee;
     }
 

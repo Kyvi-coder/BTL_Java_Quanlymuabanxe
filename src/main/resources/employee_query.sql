@@ -7,18 +7,12 @@ SELECT * FROM Employee;
 
 -- xuất danh sách nhân viên theo từng chức vụ
 
-   -- Quản lý 
 SELECT * FROM Employee
-WHERE position_employee = "manager";
-
-   -- Nhân viên
-
-SELECT * FROM Employee
-WHERE position_employee = "staff";
+WHERE position_employee = ?;
 
 -- thêm nhân viên
 
-INSERT INTO Employee(name_employee, phone_employee, position_employee, hiredate_employee, status_employee) VALUES(?,?,?,?,?);
+INSERT INTO Employee(id_employee,name_employee, phone_employee, position_employee, hiredate_employee, status_employee) VALUES(?,?,?,?,?,?);
 
 
 -- xóa nhân viên
@@ -30,7 +24,7 @@ WHERE id_employee = ?;
 -- thay đổi thông tin nhân viên
 
 UPDATE Employee
-SET name_employee = ?, phone_employee = ?, position_employee = ?, hiredate_employee = ?
+SET name_employee = ?, phone_employee = ?, position_employee = ?
 WHERE id_employee = ?;
 
 -- tìm  nhân viên sđt, tên, quê 

@@ -1,38 +1,46 @@
 USE CAR_DATABASE;
-    USE CAR_DATABASE;
 
 -- DANH SÁCH XE CÒN BẢO HÀNH
 SELECT * FROM Warranty
-WHERE EndDate >= GETDATE();
+WHERE end_date >= CURDATE();
 
 -- DANH SÁCH XE HẾT BẢO HÀNH
 SELECT * FROM Warranty
-WHERE EndDate < GETDATE();
+WHERE end_date < CURDATE();
 
 -- XEM BẢO HÀNH THEO XE
 SELECT
-    w.WarrantyID,
-    p.ProductName,
-    w.StartDate,
-    w.EndDate
+w.id_warranty,
+p.name_product,
+v.VIN,
+w.start_date,
+w.end_date
 FROM Warranty w
-         JOIN Product p ON w.ProductID = p.ProductID
-WHERE p.ProductID = 1;
+JOIN Vehicle v ON w.VIN = v.VIN
+JOIN Product p ON v.id_product = p.id_product
+WHERE v.VIN = ?;
 
 -- XEM BẢO HÀNH THEO KHÁCH HÀNG
 SELECT
-    c.Name AS CustomerName,
-    p.ProductName,
-    w.StartDate,
-    w.EndDate
+c.name_customer,
+p.name_product,
+v.VIN,
+w.start_date,
+w.end_date
 FROM Warranty w
-         JOIN Product p ON w.ProductID = p.ProductID
-         JOIN InvoiceDetail id ON p.ProductID = id.ProductID
-         JOIN Invoice i ON id.InvoiceID = i.InvoiceID
-         JOIN Customer c ON i.CustomerID = c.CustomerID
-WHERE c.CustomerID = 1;
+JOIN Vehicle v ON w.VIN = v.VIN
+JOIN Product p ON v.id_product = p.id_product
+JOIN Invoice_Detail d ON v.VIN = d.VIN
+JOIN Invoice i ON d.id_invoice = i.id_invoice
+JOIN Customer c ON i.id_customer = c.id_customer
+WHERE c.id_customer = ?;
 
 -- THÊM BẢO HÀNH
-INSERT INTO Warranty(ProductID, StartDate, EndDate)
-VALUES (1, GETDATE(), DATEADD(YEAR, 2, GETDATE()));
+INSERT INTO Warranty(
+id_warranty,
+VIN,
+start_date,
+end_date
+)
+VALUES (?, ?, CURDATE(), DATE_ADD(CURDATE(), INTERVAL 2 YEAR));
 

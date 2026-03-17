@@ -9,15 +9,17 @@ package com.carmanagement.entity;
  * @author hoait
  */
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 public class Invoice {
     private String id_invoice;
     private String id_customer;
     private String id_employee;
-    private LocalDate date_invoice;
-    private double total_amount_invoice;
-    Payment payment;
+    private LocalDateTime date_invoice;
+    private Integer total_amount_invoice;
+    private String payment;
 
-    public Invoice(String id_invoice, String id_customer, String id_employee, LocalDate date_invoice, double total_amount_invoice, Payment payment) {
+    public Invoice(String id_invoice, String id_customer, String id_employee, LocalDateTime date_invoice, Integer total_amount_invoice, String payment) {
         this.id_invoice = id_invoice;
         this.id_customer = id_customer;
         this.id_employee = id_employee;
@@ -41,11 +43,11 @@ public class Invoice {
     }
 
 
-    public LocalDate getDate_invoice() {
+    public LocalDateTime getDate_invoice() {
         return date_invoice;
     }
 
-    public double getTotal_amount_invoice() {
+    public Integer getTotal_amount_invoice() {
         return total_amount_invoice;
     }
 
@@ -62,18 +64,18 @@ public class Invoice {
     }
 
 
-    public void setDate_invoice(LocalDate date_invoice) {
+    public void setDate_invoice(LocalDateTime date_invoice) {
         this.date_invoice = date_invoice;
     }
 
-    public Payment getPayment() {
+    public String getPayment() {
         return payment;
     }
-    public void setPayment(Payment payment) {
+    public void setPayment(String payment) {
         this.payment = payment;
     }
 
-    public void setTotal_amount_invoice(double total_amount_invoice) {
+    public void setTotal_amount_invoice(Integer total_amount_invoice) {
         this.total_amount_invoice = total_amount_invoice;
     }
     

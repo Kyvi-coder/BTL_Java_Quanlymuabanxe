@@ -21,7 +21,7 @@ INSERT INTO Vehicle(VIN, id_product) VALUES(?,?);
   -- mã VIN
   SELECT * FROM Product
   JOIN Vehicle v ON id_product = v.id_product
-  WHERE v.VIN LIKE ?;
+  WHERE v.VIN = ?;
   
 -- xoa xe
 
@@ -59,3 +59,10 @@ WHERE v.VIN NOT IN (
     SELECT VIN
     FROM Invoice_Detail
 );
+
+-- check VIN trùng
+SELECT 1 FROM Vehicle WHERE VIN = ?;
+
+SELECT 1 FROM Invoice_Detail WHERE VIN = ?;
+
+SELECT 1 FROM Invoice_Detail WHERE VIN = ?;

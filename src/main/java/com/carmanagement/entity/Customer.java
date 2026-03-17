@@ -3,10 +3,10 @@ package com.carmanagement.entity;
 public class Customer {
     private String id_customer;
     private String name_customer;
-    private int phone_customer;
+    private String phone_customer;
     private String address_customer;
     private String email_customer;
-    public  Customer(String id_customer, String name_customer, int phone_customer, String address_customer, String email_customer) {
+    public  Customer() {
         this.id_customer = id_customer;
         this.name_customer = name_customer;
         this.phone_customer = phone_customer;
@@ -25,10 +25,10 @@ public class Customer {
     public void setName_customer(String name_customer) {
         this.name_customer = name_customer;
     }
-    public int getPhone_customer() {
+    public String getPhone_customer() {
         return phone_customer;
     }
-    public void setPhone_customer(int phone_customer) {
+    public void setPhone_customer(String phone_customer) {
         this.phone_customer = phone_customer;
     }
     public String getAddress_customer() {

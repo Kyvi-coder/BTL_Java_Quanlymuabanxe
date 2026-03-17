@@ -5,15 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e212e10f-8f50-4e07-8b07-b42a716b7564" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/entity/Payment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/entity/Vehicle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/dao/customerDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/dao/employeeDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/dao/invoiceDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/dao/productDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/entity/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/entity/Customer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/entity/Employee.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/entity/Employee.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/entity/Invoice.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/entity/Invoice.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/entity/Invoice_Detail.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/entity/Invoice_Detail.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/entity/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/entity/Product.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/entity/Warranty.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/entity/Warranty.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/entity/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/entity/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/entity/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/entity/Employee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/entity/Invoice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/entity/Invoice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/entity/Invoice_Detail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/entity/Invoice_Detail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/entity/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/entity/Payment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/entity/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/entity/Warranty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/entity/Warranty.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/entity/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/entity/Vehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/employee_query.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/employee_query.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/invoice_query.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/invoice_query.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/product_query.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/product_query.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/warranty_query.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/warranty_query.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,34 +70,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.com.carmanagement.Main.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/trank/IdeaProjects/Quan_ly_mua_ban_xe/diagram&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.com.carmanagement.Main.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/trank/IdeaProjects/Quan_ly_mua_ban_xe",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\trank\IdeaProjects\Quan_ly_mua_ban_xe\diagram" />
@@ -161,7 +173,10 @@
       <workItem from="1773317424090" duration="604000" />
       <workItem from="1773373662238" duration="614000" />
       <workItem from="1773580884887" duration="642000" />
-      <workItem from="1773644308378" duration="4135000" />
+      <workItem from="1773644308378" duration="18107000" />
+      <workItem from="1773719405406" duration="8762000" />
+      <workItem from="1773739497056" duration="22000" />
+      <workItem from="1773746243438" duration="12572000" />
     </task>
     <servers />
   </component>
