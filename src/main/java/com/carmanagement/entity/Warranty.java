@@ -23,6 +23,8 @@ public class Warranty {
         this.VIN = VIN;
     }
 
+    public Warranty() {}
+
     public String getId_warranty() {
         return id_warranty;
     }
