@@ -6,7 +6,7 @@ public class DBConnection {
         try {
             String url = "jdbc:mysql://localhost:3306/car_database";
             String user = "root";
-            String password = "";
+            String password = "3962";
             Connection conn = DriverManager.getConnection(url,user,password);
             return conn;
         } catch (Exception e) {

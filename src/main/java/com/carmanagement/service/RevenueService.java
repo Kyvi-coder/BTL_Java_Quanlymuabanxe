@@ -1,5 +1,5 @@
 package com.carmanagement.service;
-import com.carmanagement.database.DBConnection;
+import com.carmanagement.dao.DBConnection;
 import java.sql.*;
 public class RevenueService {
 

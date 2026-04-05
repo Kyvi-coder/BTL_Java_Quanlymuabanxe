@@ -11,6 +11,8 @@ package com.carmanagement.entity;
 import java.time.LocalDate;
 public class Warranty {
     private String id_warranty;
+    private String customer_name;
+    private String car_name;
     private LocalDate start_date_warranty;
     private LocalDate end_date_warranty;
     private String VIN;
@@ -29,7 +31,13 @@ public class Warranty {
         return id_warranty;
     }
 
+    public String getCustomer_name() {
+        return customer_name;
+    }
 
+    public String getCar_name() {
+        return car_name;
+    }
 
     public LocalDate getStart_date_warranty() {
         return start_date_warranty;
@@ -47,7 +55,13 @@ public class Warranty {
         this.id_warranty = id_warranty;
     }
 
+    public void setCustomer_name(String customer_name) {
+        this.customer_name = customer_name;
+    }
 
+    public void setCar_name(String car_name) {
+        this.car_name = car_name;
+    }
 
     public void setStart_date_warranty(LocalDate start_date_warranty) {
         this.start_date_warranty = start_date_warranty;
@@ -57,7 +71,7 @@ public class Warranty {
         this.end_date_warranty = end_date_warranty;
     }
 
-    public void setVIN(String status_warranty) {
+    public void setVIN(String VIN) {
         this.VIN = VIN;
     }
     

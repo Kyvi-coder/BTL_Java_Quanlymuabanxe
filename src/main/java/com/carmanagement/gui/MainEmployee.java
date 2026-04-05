@@ -1,5 +1,7 @@
 package com.carmanagement.gui;
 
+import com.carmanagement.entity.Employee;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -10,23 +12,41 @@ import java.awt.*;
 public class MainEmployee extends JFrame{
     private JPanel contentPanel;
     private CardLayout cardLayout;
+    private final SalesPanel salesPanel;
+    private final CustomerPanel customerPanel;
+    private final InventoryPanel inventoryPanel;
+    private final WarrantyPanel warrantyPanel;
 
-    public MainEmployee(String username){
+    public MainEmployee(Employee currentEmployee){
         this.setTitle("Employee Car Managerment System");
         this.setSize(1200,700);
         this.setLayout(new BorderLayout());
         this.setLocationRelativeTo(null);
-        this.add(this.createTopBar(username), "North");
+        this.add(this.createTopBar(currentEmployee != null ? currentEmployee.getName_employee() : ""), "North");
         this.add(this.createSidebar(), "West");
         this.cardLayout = new CardLayout();
         this.contentPanel = new JPanel(this.cardLayout);
+        this.salesPanel = new SalesPanel(currentEmployee);
+        this.customerPanel = new CustomerPanel();
+        this.inventoryPanel = new InventoryPanel();
+        this.warrantyPanel = new WarrantyPanel();
         this.contentPanel.add(new DashboardPanel(), "dashboard");
-        this.contentPanel.add(new SalesPanel(), "sales");
-        this.contentPanel.add(new CustomerPanel(), "customer");
-        this.contentPanel.add(new InventoryPanel(), "inventory");
-        this.contentPanel.add(new WarrantyPanel(), "warranty");
+        this.contentPanel.add(this.salesPanel, "sales");
+        this.contentPanel.add(this.customerPanel, "customer");
+        this.contentPanel.add(this.inventoryPanel, "inventory");
+        this.contentPanel.add(this.warrantyPanel, "warranty");
         this.add(this.contentPanel, "Center");
         this.setVisible(true);
+    }
+
+    public MainEmployee(String username) {
+        this(createEmployeeFromUsername(username));
+    }
+
+    private static Employee createEmployeeFromUsername(String username) {
+        Employee employee = new Employee();
+        employee.setName_employee(username);
+        return employee;
     }
     private JPanel createTopBar(String username) {
         JPanel panel = new JPanel(new BorderLayout());
@@ -65,7 +85,20 @@ public class MainEmployee extends JFrame{
         btn.setForeground(Color.WHITE);
         btn.setFont(new Font("Arial", Font.BOLD, 14));
         btn.setBorder(null);
-        btn.addActionListener((e) -> this.cardLayout.show(this.contentPanel, panelName));
+        btn.addActionListener((e) -> {
+            refreshPanelIfNeeded(panelName);
+            this.cardLayout.show(this.contentPanel, panelName);
+        });
         return btn;
+    }
+
+    private void refreshPanelIfNeeded(String panelName) {
+        switch (panelName) {
+            case "customer" -> this.customerPanel.refreshData();
+            case "inventory" -> this.inventoryPanel.refreshData();
+            case "warranty" -> this.warrantyPanel.refreshData();
+            default -> {
+            }
+        }
     }
 }

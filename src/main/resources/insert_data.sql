@@ -22,16 +22,16 @@ INSERT INTO Account() VALUES
 SELECT * FROM Account;
 
 INSERT INTO Product VALUES 
-('P001', 'Toyota Vios', 'Toyota', 'White', 520000000, 2023),
-('P002', 'Honda City', 'Honda', 'Black', 540000000, 2022),
-('P003', 'Hyundai Accent', 'Hyundai', 'Red', 450000000, 2023),
-('P004', 'Kia K3', 'Kia', 'Grey', 560000000, 2024),
-('P005', 'Mazda 3', 'Mazda', 'White', 620000000, 2023),
-('P006', 'Toyota Corolla Cross', 'Toyota', 'Black', 820000000, 2024),
-('P007', 'Honda CRV', 'Honda', 'White', 1050000000, 2024),
-('P008', 'Hyundai Tucson', 'Hyundai', 'Blue', 890000000, 2023),
-('P009', 'Kia Seltos', 'Kia', 'Red', 690000000, 2023),
-('P010', 'Mazda CX5', 'Mazda', 'Grey', 920000000, 2024);
+('P001', 'Toyota Vios', 'Toyota', 'White', 520000000, 2023,'Chưa bán'),
+('P002', 'Honda City', 'Honda', 'Black', 540000000, 2022,'Chưa bán'),
+('P003', 'Hyundai Accent', 'Hyundai', 'Red', 450000000, 2023,'Chưa bán'),
+('P004', 'Kia K3', 'Kia', 'Grey', 560000000, 2024,'Chưa bán'),
+('P005', 'Mazda 3', 'Mazda', 'White', 620000000, 2023,'Chưa bán'),
+('P006', 'Toyota Corolla Cross', 'Toyota', 'Black', 820000000, 2024,'Chưa bán'),
+('P007', 'Honda CRV', 'Honda', 'White', 1050000000, 2024,'Chưa bán'),
+('P008', 'Hyundai Tucson', 'Hyundai', 'Blue', 890000000, 2023,'Chưa bán'),
+('P009', 'Kia Seltos', 'Kia', 'Red', 690000000, 2023,'Chưa bán'),
+('P010', 'Mazda CX5', 'Mazda', 'Grey', 920000000, 2024,'Chưa bán');
 
 SELECT * FROM Product;
 

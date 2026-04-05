@@ -15,14 +15,16 @@ public class Product {
     private Integer price_product;
     private String color_product;
     private int production_year_product;
+    private String status_product;
 
-    public Product(String id_product, String name_product, String brand_product, Integer price_product, String color_product,int production_year_product) {
+    public Product(String id_product, String name_product, String brand_product, Integer price_product, String color_product,int production_year_product, String status_product) {
         this.id_product = id_product;
         this.name_product = name_product;
         this.brand_product = brand_product;
         this.price_product = price_product;
         this.color_product = color_product;
         this.production_year_product = production_year_product;
+        this.status_product = status_product;
     }
 
     public Product() {}
@@ -53,6 +55,10 @@ public class Product {
         return production_year_product;
     }
 
+    public String getStatus_product() {
+        return status_product;
+    }
+
     public void setId_product(String id_product) {
         this.id_product = id_product;
     }
@@ -78,5 +84,8 @@ public class Product {
     public void setProduction_year_product(int production_year_product) {
         this.production_year_product = production_year_product;
     }
-    
+
+    public void setStatus_product(String status_product) {
+        this.status_product = status_product;
+    }
 }

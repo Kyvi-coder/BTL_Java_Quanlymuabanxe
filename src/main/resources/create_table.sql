@@ -42,7 +42,8 @@ color_product VARCHAR(10) NOT NULL,
 price_product INT NOT NULL,
 production_year_product YEAR NOT NULL
 );
-
+ALTER TABLE Product
+ADD status_product varchar(20);
 
 -- Vehicle
 CREATE TABLE Vehicle(

@@ -1,21 +1,15 @@
 package com.carmanagement.service;
-import com.carmanagement.dao.DBConnection;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+
+import com.carmanagement.entity.Employee;
+
 public class LoginService {
-    public boolean login(String username,String password){
-        try{
-            Connection conn = DBConnection.getConnection();
-            String sql = "SELECT * FROM account WHERE username=? AND password=?";
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1,username);
-            ps.setString(2,password);
-            ResultSet rs = ps.executeQuery();
-            return rs.next();
-        }catch(Exception e){
-            e.printStackTrace();
-            return false;
-        }
+    private final AccountService accountService = new AccountService();
+
+    public boolean login(String username, String password) {
+        return accountService.login(username, password) != null;
+    }
+
+    public Employee getEmployeeByAccount(String username, String password) {
+        return accountService.getEmployeeByLogin(username, password);
     }
 }

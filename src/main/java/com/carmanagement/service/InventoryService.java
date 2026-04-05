@@ -1,12 +1,25 @@
 package com.carmanagement.service;
-import com.carmanagement.database.DBConnection;
-import java.sql.*;
+
+import com.carmanagement.dao.DBConnection;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 public class InventoryService {
-    // ===== LẤY TẤT CẢ XE =====
+    // Doc danh sach xe bang query join Product va Vehicle.
     public ResultSet getAllCars() {
         try {
             Connection conn = DBConnection.getConnection();
-            String sql = "SELECT * FROM product";
+            String sql = "SELECT v.VIN, p.id_product, p.name_product, p.brand_product, " +
+                    "p.color_product, p.price_product, p.production_year_product, " +
+                    "CASE " +
+                    "WHEN d.VIN IS NOT NULL THEN 'Da ban' " +
+                    "ELSE p.status_product " +
+                    "END AS status_display " +
+                    "FROM Vehicle v " +
+                    "JOIN Product p ON v.id_product = p.id_product " +
+                    "LEFT JOIN Invoice_Detail d ON v.VIN = d.VIN";
             PreparedStatement ps = conn.prepareStatement(sql);
             return ps.executeQuery();
         } catch (Exception e) {
@@ -15,18 +28,27 @@ public class InventoryService {
         return null;
     }
 
-    // ===== TÌM KIẾM =====
     public ResultSet searchCar(String keyword) {
         try {
             Connection conn = DBConnection.getConnection();
-
-            String sql = "SELECT * FROM product WHERE vin LIKE ? OR brand LIKE ? OR product_id LIKE ?";
+            String sql = "SELECT v.VIN, p.id_product, p.name_product, p.brand_product, " +
+                    "p.color_product, p.price_product, p.production_year_product, " +
+                    "CASE " +
+                    "WHEN d.VIN IS NOT NULL THEN 'Da ban' " +
+                    "ELSE p.status_product " +
+                    "END AS status_display " +
+                    "FROM Vehicle v " +
+                    "JOIN Product p ON v.id_product = p.id_product " +
+                    "LEFT JOIN Invoice_Detail d ON v.VIN = d.VIN " +
+                    "WHERE v.VIN LIKE ? OR p.brand_product LIKE ? OR p.id_product LIKE ? OR p.name_product LIKE ? OR " +
+                    "CASE WHEN d.VIN IS NOT NULL THEN 'Da ban' ELSE p.status_product END LIKE ?";
 
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, "%" + keyword + "%");
             ps.setString(2, "%" + keyword + "%");
             ps.setString(3, "%" + keyword + "%");
-
+            ps.setString(4, "%" + keyword + "%");
+            ps.setString(5, "%" + keyword + "%");
             return ps.executeQuery();
         } catch (Exception e) {
             e.printStackTrace();
@@ -34,11 +56,19 @@ public class InventoryService {
         return null;
     }
 
-    // ===== SẮP XẾP =====
     public ResultSet sortByBrand() {
         try {
             Connection conn = DBConnection.getConnection();
-            String sql = "SELECT * FROM product ORDER BY brand";
+            String sql = "SELECT v.VIN, p.id_product, p.name_product, p.brand_product, " +
+                    "p.color_product, p.price_product, p.production_year_product, " +
+                    "CASE " +
+                    "WHEN d.VIN IS NOT NULL THEN 'Da ban' " +
+                    "ELSE p.status_product " +
+                    "END AS status_display " +
+                    "FROM Vehicle v " +
+                    "JOIN Product p ON v.id_product = p.id_product " +
+                    "LEFT JOIN Invoice_Detail d ON v.VIN = d.VIN " +
+                    "ORDER BY p.brand_product";
             return conn.prepareStatement(sql).executeQuery();
         } catch (Exception e) {
             e.printStackTrace();
@@ -49,7 +79,16 @@ public class InventoryService {
     public ResultSet sortByPriceAsc() {
         try {
             Connection conn = DBConnection.getConnection();
-            String sql = "SELECT * FROM product ORDER BY price ASC";
+            String sql = "SELECT v.VIN, p.id_product, p.name_product, p.brand_product, " +
+                    "p.color_product, p.price_product, p.production_year_product, " +
+                    "CASE " +
+                    "WHEN d.VIN IS NOT NULL THEN 'Da ban' " +
+                    "ELSE p.status_product " +
+                    "END AS status_display " +
+                    "FROM Vehicle v " +
+                    "JOIN Product p ON v.id_product = p.id_product " +
+                    "LEFT JOIN Invoice_Detail d ON v.VIN = d.VIN " +
+                    "ORDER BY p.price_product ASC";
             return conn.prepareStatement(sql).executeQuery();
         } catch (Exception e) {
             e.printStackTrace();
@@ -60,7 +99,16 @@ public class InventoryService {
     public ResultSet sortByPriceDesc() {
         try {
             Connection conn = DBConnection.getConnection();
-            String sql = "SELECT * FROM product ORDER BY price DESC";
+            String sql = "SELECT v.VIN, p.id_product, p.name_product, p.brand_product, " +
+                    "p.color_product, p.price_product, p.production_year_product, " +
+                    "CASE " +
+                    "WHEN d.VIN IS NOT NULL THEN 'Da ban' " +
+                    "ELSE p.status_product " +
+                    "END AS status_display " +
+                    "FROM Vehicle v " +
+                    "JOIN Product p ON v.id_product = p.id_product " +
+                    "LEFT JOIN Invoice_Detail d ON v.VIN = d.VIN " +
+                    "ORDER BY p.price_product DESC";
             return conn.prepareStatement(sql).executeQuery();
         } catch (Exception e) {
             e.printStackTrace();
@@ -68,42 +116,37 @@ public class InventoryService {
         return null;
     }
 
-    // ===== THÊM XE =====
+    // Them mot Product moi va mot Vehicle gan voi Product do.
     public boolean insertCar(String vin, String name, String brand, String color,
-                             double price, String importDate, int quantity) {
+                             int price, int productionYear, String status) {
         try {
             Connection conn = DBConnection.getConnection();
+            conn.setAutoCommit(false);
 
-            String sql = "INSERT INTO product(vin, product_name, brand, color, price, import_date, quantity) VALUES (?,?,?,?,?,?,?)";
+            String productId = "P" + System.currentTimeMillis();
+            String sqlProduct = "INSERT INTO Product(id_product, name_product, brand_product, color_product, price_product, production_year_product, status_product) VALUES (?,?,?,?,?,?,?)";
+            String sqlVehicle = "INSERT INTO Vehicle(VIN, id_product) VALUES (?,?)";
 
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, vin);
-            ps.setString(2, name);
-            ps.setString(3, brand);
-            ps.setString(4, color);
-            ps.setDouble(5, price);
-            ps.setString(6, importDate);
-            ps.setInt(7, quantity);
+            PreparedStatement psProduct = conn.prepareStatement(sqlProduct);
+            psProduct.setString(1, productId);
+            psProduct.setString(2, name);
+            psProduct.setString(3, brand);
+            psProduct.setString(4, color);
+            psProduct.setInt(5, price);
+            psProduct.setInt(6, productionYear);
+            psProduct.setString(7, status);
+            psProduct.executeUpdate();
 
-            return ps.executeUpdate() > 0;
+            PreparedStatement psVehicle = conn.prepareStatement(sqlVehicle);
+            psVehicle.setString(1, vin);
+            psVehicle.setString(2, productId);
+            psVehicle.executeUpdate();
 
+            conn.commit();
+            return true;
         } catch (Exception e) {
             e.printStackTrace();
         }
         return false;
     }
-
-    // ===== XÓA XE HẾT =====
-    public void deleteOutOfStock() {
-        try {
-            Connection conn = DBConnection.getConnection();
-
-            String sql = "DELETE FROM product WHERE quantity <= 0";
-            conn.prepareStatement(sql).executeUpdate();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 }
-

@@ -25,7 +25,7 @@ public class MainFrame extends JFrame {
     }
     // PHÂN QUYỀN
     private void checkRole() {
-        if (currentUser.getRole().equalsIgnoreCase("EMPLOYEE")) {
+        if (currentUser.getPosition_employee().equalsIgnoreCase("EMPLOYEE")) {
             btnEmployee.setEnabled(false); // nhân viên không quản lý nhân viên
         }
     }

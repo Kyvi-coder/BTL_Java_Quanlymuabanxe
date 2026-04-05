@@ -1,10 +1,14 @@
 package com.carmanagement.gui;
+
+import com.carmanagement.entity.Warranty;
 import com.carmanagement.service.WarrantyService;
+
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.sql.ResultSet;
-import java.util.Random;
+import java.util.List;
 
 public class WarrantyPanel extends JPanel {
     JTable table;
@@ -13,7 +17,7 @@ public class WarrantyPanel extends JPanel {
     WarrantyService service = new WarrantyService();
 
     public WarrantyPanel() {
-        setLayout(new BorderLayout(10,10));
+        setLayout(new BorderLayout(10, 10));
 
         add(titlePanel(), BorderLayout.NORTH);
         add(tablePanel(), BorderLayout.CENTER);
@@ -22,20 +26,17 @@ public class WarrantyPanel extends JPanel {
         loadData();
     }
 
-    // ===== TITLE =====
     private JPanel titlePanel() {
         JPanel p = new JPanel();
-        JLabel title = new JLabel("QUẢN LÝ BẢO HÀNH");
+        JLabel title = new JLabel("QUAN LY BAO HANH");
         title.setFont(new Font("Arial", Font.BOLD, 18));
         p.add(title);
         return p;
     }
 
-    // ===== TABLE =====
     private JScrollPane tablePanel() {
-
-        String[] cols = {"Mã BH", "Khách", "Xe", "VIN", "Ngày tạo", "Ngày hết hạn"};
-        model = new DefaultTableModel(cols,0);
+        String[] cols = {"Ma BH", "Khach", "Xe", "VIN", "Ngay tao", "Ngay het han"};
+        model = new DefaultTableModel(cols, 0);
 
         table = new JTable(model);
         table.setRowHeight(25);
@@ -43,85 +44,110 @@ public class WarrantyPanel extends JPanel {
         return new JScrollPane(table);
     }
 
-    // ===== FORM =====
     private JPanel formPanel() {
-        JPanel p = new JPanel(new GridLayout(2,5,5,5));
+        JPanel p = new JPanel(new GridLayout(2, 5, 5, 5));
 
         txtCustomer = new JTextField();
+        txtCustomer.setEditable(false);
         txtCar = new JTextField();
+        txtCar.setEditable(false);
         txtVIN = new JTextField();
         txtStart = new JTextField();
         txtEnd = new JTextField();
 
-        JButton btnAdd = new JButton("Thêm bảo hành");
+        txtVIN.getDocument().addDocumentListener(new DocumentListener() {
+            public void insertUpdate(DocumentEvent e) { fillInfoByVIN(); }
+            public void removeUpdate(DocumentEvent e) { fillInfoByVIN(); }
+            public void changedUpdate(DocumentEvent e) { fillInfoByVIN(); }
+        });
 
+        JButton btnAdd = new JButton("Them bao hanh");
         btnAdd.addActionListener(e -> addWarranty());
 
-        p.add(new JLabel("Khách"));
+        p.add(new JLabel("Khach"));
         p.add(txtCustomer);
-
         p.add(new JLabel("Xe"));
         p.add(txtCar);
-
         p.add(new JLabel("VIN"));
         p.add(txtVIN);
-
-        p.add(new JLabel("Ngày bắt đầu"));
+        p.add(new JLabel("Ngay bat dau"));
         p.add(txtStart);
-
-        p.add(new JLabel("Ngày hết hạn"));
+        p.add(new JLabel("Ngay het han"));
         p.add(txtEnd);
-
         p.add(btnAdd);
 
         return p;
     }
 
-    // ===== LOAD =====
     private void loadData() {
-        service.deleteExpiredWarranty(); // auto xóa
+        service.deleteExpiredWarranty();
+        model.setRowCount(0);
+        loadRows(service.getAllWarranty());
+    }
 
-        try {
-            model.setRowCount(0);
+    public void refreshData() {
+        loadData();
+    }
 
-            ResultSet rs = service.getAllWarranty();
+    private void loadRows(List<Warranty> warranties) {
+        if (warranties == null) {
+            return;
+        }
 
-            while (rs.next()) {
-                model.addRow(new Object[]{
-                        rs.getString("warranty_id"),
-                        rs.getString("customer_name"),
-                        rs.getString("car_name"),
-                        rs.getString("vin"),
-                        rs.getString("start_date"),
-                        rs.getString("end_date")
-                });
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
+        for (Warranty warranty : warranties) {
+            model.addRow(new Object[]{
+                    warranty.getId_warranty(),
+                    warranty.getCustomer_name(),
+                    warranty.getCar_name(),
+                    warranty.getVIN(),
+                    warranty.getStart_date_warranty(),
+                    warranty.getEnd_date_warranty()
+            });
         }
     }
 
-    // ===== ADD =====
+    private void fillInfoByVIN() {
+        String vin = txtVIN.getText().trim();
+        if (vin.isEmpty()) {
+            txtCustomer.setText("");
+            txtCar.setText("");
+            return;
+        }
+
+        Warranty warranty = service.getWarrantyInfoByVIN(vin);
+        if (warranty == null) {
+            txtCustomer.setText("");
+            txtCar.setText("");
+            return;
+        }
+
+        txtCustomer.setText(warranty.getCustomer_name());
+        txtCar.setText(warranty.getCar_name());
+    }
+
     private void addWarranty() {
-
-        String id = "BH" + new Random().nextInt(100000);
-
+        String id = "W" + System.currentTimeMillis();
         boolean ok = service.insertWarranty(
                 id,
-                txtCustomer.getText(),
-                txtCar.getText(),
-                txtVIN.getText(),
-                txtStart.getText(),
-                txtEnd.getText()
+                txtVIN.getText().trim(),
+                txtStart.getText().trim(),
+                txtEnd.getText().trim()
         );
 
-        if(ok){
-            JOptionPane.showMessageDialog(this,"✔ Thêm bảo hành thành công");
+        if (ok) {
+            JOptionPane.showMessageDialog(this, "Them bao hanh thanh cong");
             loadData();
+            clearForm();
         } else {
-            JOptionPane.showMessageDialog(this,"❌ Lỗi");
+            JOptionPane.showMessageDialog(this, "Loi");
         }
     }
-}
 
+    private void clearForm() {
+        txtCustomer.setText("");
+        txtCar.setText("");
+        txtVIN.setText("");
+        txtStart.setText("");
+        txtEnd.setText("");
+    }
+}

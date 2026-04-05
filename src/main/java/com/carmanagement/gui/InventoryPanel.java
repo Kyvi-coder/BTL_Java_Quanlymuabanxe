@@ -1,20 +1,25 @@
 package com.carmanagement.gui;
+
 import com.carmanagement.service.InventoryService;
+
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.sql.ResultSet;
+
 public class InventoryPanel extends JPanel {
     JTable table;
     DefaultTableModel model;
     JTextField txtSearch;
-    // form thêm xe
-    JTextField txtVIN, txtName, txtBrand, txtColor, txtPrice, txtDate, txtQty;
+    JTextField txtVIN, txtName, txtBrand, txtColor, txtPrice, txtYear;
+    JComboBox<String> cbStatus;
 
     InventoryService service = new InventoryService();
 
     public InventoryPanel() {
-        setLayout(new BorderLayout(10,10));
+        setLayout(new BorderLayout(10, 10));
 
         add(topPanel(), BorderLayout.NORTH);
         add(tablePanel(), BorderLayout.CENTER);
@@ -23,22 +28,27 @@ public class InventoryPanel extends JPanel {
         loadData();
     }
 
-    // ===== TOP =====
     private JPanel topPanel() {
         JPanel p = new JPanel();
 
         txtSearch = new JTextField(20);
-        JButton btnSearch = new JButton("Tìm");
-        JButton btnSortBrand = new JButton("Sort hãng");
-        JButton btnSortAsc = new JButton("Giá ↑");
-        JButton btnSortDesc = new JButton("Giá ↓");
+        JButton btnSearch = new JButton("Tim");
+        JButton btnSortBrand = new JButton("Sort hang");
+        JButton btnSortAsc = new JButton("Gia tang");
+        JButton btnSortDesc = new JButton("Gia giam");
 
         btnSearch.addActionListener(e -> search());
-        btnSortBrand.addActionListener(e -> load(service.sortByBrand()));
-        btnSortAsc.addActionListener(e -> load(service.sortByPriceAsc()));
-        btnSortDesc.addActionListener(e -> load(service.sortByPriceDesc()));
+        btnSortBrand.addActionListener(e -> loadTable(service.sortByBrand()));
+        btnSortAsc.addActionListener(e -> loadTable(service.sortByPriceAsc()));
+        btnSortDesc.addActionListener(e -> loadTable(service.sortByPriceDesc()));
 
-        p.add(new JLabel("Tìm:"));
+        txtSearch.getDocument().addDocumentListener(new DocumentListener() {
+            public void insertUpdate(DocumentEvent e) { search(); }
+            public void removeUpdate(DocumentEvent e) { search(); }
+            public void changedUpdate(DocumentEvent e) { search(); }
+        });
+
+        p.add(new JLabel("Tim kiem:"));
         p.add(txtSearch);
         p.add(btnSearch);
         p.add(btnSortBrand);
@@ -48,94 +58,123 @@ public class InventoryPanel extends JPanel {
         return p;
     }
 
-    // ===== TABLE =====
     private JScrollPane tablePanel() {
-        String[] cols = {"VIN","Tên","Hãng","ID","Màu","Giá","Ngày nhập","Số lượng"};
+        String[] cols = {"VIN", "Ma san pham", "Ten xe", "Hang", "Mau", "Gia", "Nam san xuat", "Trang thai"};
 
-        model = new DefaultTableModel(cols,0);
+        model = new DefaultTableModel(cols, 0);
         table = new JTable(model);
 
         return new JScrollPane(table);
     }
 
-    // ===== BOTTOM =====
     private JPanel bottomPanel() {
-        JPanel p = new JPanel(new GridLayout(3,6,5,5));
+        JPanel wrapper = new JPanel(new BorderLayout(10, 10));
+        wrapper.setBorder(BorderFactory.createTitledBorder("Them xe moi"));
+
+        JPanel form = new JPanel(new GridLayout(4, 4, 10, 10));
 
         txtVIN = new JTextField();
         txtName = new JTextField();
         txtBrand = new JTextField();
         txtColor = new JTextField();
         txtPrice = new JTextField();
-        txtDate = new JTextField();
-        txtQty = new JTextField();
+        txtYear = new JTextField();
+        cbStatus = new JComboBox<>(new String[]{"Chua ban", "Da ban", "Bao tri"});
 
-        JButton btnAdd = new JButton("Thêm xe");
-
+        JButton btnAdd = new JButton("Them xe");
         btnAdd.addActionListener(e -> addCar());
 
-        p.add(new JLabel("VIN")); p.add(txtVIN);
-        p.add(new JLabel("Tên")); p.add(txtName);
-        p.add(new JLabel("Hãng")); p.add(txtBrand);
+        form.add(new JLabel("VIN"));
+        form.add(txtVIN);
+        form.add(new JLabel("Ten xe"));
+        form.add(txtName);
+        form.add(new JLabel("Hang"));
+        form.add(txtBrand);
+        form.add(new JLabel("Mau"));
+        form.add(txtColor);
+        form.add(new JLabel("Gia"));
+        form.add(txtPrice);
+        form.add(new JLabel("Nam san xuat"));
+        form.add(txtYear);
+        form.add(new JLabel("Trang thai"));
+        form.add(cbStatus);
 
-        p.add(new JLabel("Màu")); p.add(txtColor);
-        p.add(new JLabel("Giá")); p.add(txtPrice);
-        p.add(new JLabel("Ngày")); p.add(txtDate);
+        JPanel actions = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        actions.add(btnAdd);
 
-        p.add(new JLabel("Số lượng")); p.add(txtQty);
-        p.add(btnAdd);
-
-        return p;
+        wrapper.add(form, BorderLayout.CENTER);
+        wrapper.add(actions, BorderLayout.SOUTH);
+        return wrapper;
     }
 
-    // ===== LOAD =====
     private void loadData() {
-        load(service.getAllCars());
+        loadTable(service.getAllCars());
     }
 
-    private void load(ResultSet rs) {
+    public void refreshData() {
+        loadData();
+    }
+
+    private void loadTable(ResultSet rs) {
         try {
             model.setRowCount(0);
+            if (rs == null) {
+                return;
+            }
 
             while (rs.next()) {
                 model.addRow(new Object[]{
-                        rs.getString("vin"),
-                        rs.getString("product_name"),
-                        rs.getString("brand"),
-                        rs.getInt("product_id"),
-                        rs.getString("color"),
-                        rs.getDouble("price"),
-                        rs.getString("import_date"),
-                        rs.getInt("quantity")
+                        rs.getString("VIN"),
+                        rs.getString("id_product"),
+                        rs.getString("name_product"),
+                        rs.getString("brand_product"),
+                        rs.getString("color_product"),
+                        rs.getInt("price_product"),
+                        rs.getInt("production_year_product"),
+                        rs.getString("status_display")
                 });
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    // ===== SEARCH =====
+
     private void search() {
-        load(service.searchCar(txtSearch.getText()));
+        String keyword = txtSearch.getText().trim();
+        if (keyword.isEmpty()) {
+            loadData();
+            return;
+        }
+
+        loadTable(service.searchCar(keyword));
     }
-    // ===== ADD =====
+
     private void addCar() {
         boolean ok = service.insertCar(
-                txtVIN.getText(),
-                txtName.getText(),
-                txtBrand.getText(),
-                txtColor.getText(),
-                Double.parseDouble(txtPrice.getText()),
-                txtDate.getText(),
-                Integer.parseInt(txtQty.getText())
+                txtVIN.getText().trim(),
+                txtName.getText().trim(),
+                txtBrand.getText().trim(),
+                txtColor.getText().trim(),
+                Integer.parseInt(txtPrice.getText().trim()),
+                Integer.parseInt(txtYear.getText().trim()),
+                cbStatus.getSelectedItem().toString()
         );
-        if(ok){
-            JOptionPane.showMessageDialog(this,"✔ Thêm xe thành công");
-            service.deleteOutOfStock();
+        if (ok) {
+            JOptionPane.showMessageDialog(this, "Them xe thanh cong");
             loadData();
+            clearForm();
         } else {
-            JOptionPane.showMessageDialog(this,"❌ Lỗi");
+            JOptionPane.showMessageDialog(this, "Loi");
         }
     }
-}
 
+    private void clearForm() {
+        txtVIN.setText("");
+        txtName.setText("");
+        txtBrand.setText("");
+        txtColor.setText("");
+        txtPrice.setText("");
+        txtYear.setText("");
+        cbStatus.setSelectedItem("Chua ban");
+    }
+}

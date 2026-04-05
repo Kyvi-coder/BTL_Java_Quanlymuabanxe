@@ -1,29 +1,25 @@
 package com.carmanagement.service;
-import com.carmanagement.database.DBConnection;
+import com.carmanagement.dao.DBConnection;
+import com.carmanagement.entity.Customer;
+import com.carmanagement.dao.customerDAO;
 import java.sql.*;
+import java.util.List;
 import java.util.Vector;
 public class CustomerService {
+    private customerDAO dao = new customerDAO();
     // Lấy danh sách khách hàng
-    public ResultSet getAllCustomers() {
-        try {
-            Connection conn = DBConnection.getConnection();
+    public List<Customer> getAllCustomers() {
+        List<Customer> list = dao.getAllCustomers();
 
-            String sql = "SELECT customer_name, phone, contract_id, warranty_id, car_name FROM invoice";
-
-            PreparedStatement ps = conn.prepareStatement(sql);
-            return ps.executeQuery();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
+        return list;
     }
     // Tìm kiếm
     public ResultSet searchCustomer(String keyword) {
         try {
             Connection conn = DBConnection.getConnection();
 
-            String sql = "SELECT customer_name, phone, contract_id, warranty_id, car_name " +
-                    "FROM invoice WHERE customer_name LIKE ? OR phone LIKE ?";
+            String sql = "SELECT id_customer, name_customer, phone_customer, address_customer " +
+                    "FROM Customer WHERE name_customer LIKE ? OR phone_customer LIKE ?";
 
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, "%" + keyword + "%");
@@ -37,23 +33,20 @@ public class CustomerService {
         return null;
     }
     // Cập nhật khách hàng
-    public boolean updateCustomer(String name, String phone, String contractID) {
-        try {
-            Connection conn = DBConnection.getConnection();
+    public boolean updateCustomer(String name, String phone, String address, String id) {
 
-            String sql = "UPDATE invoice SET customer_name = ?, phone = ? WHERE contract_id = ?";
-
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, name);
-            ps.setString(2, phone);
-            ps.setString(3, contractID);
-
-            return ps.executeUpdate() > 0;
-
-        } catch (Exception e) {
-            e.printStackTrace();
+        // validate đơn giản
+        if(name.isEmpty() || phone.isEmpty()){
+            System.out.println("Thiếu dữ liệu");
+            return false;
         }
-        return false;
+
+        Customer c = new Customer();
+        c.setId_customer(id);
+        c.setName_customer(name);
+        c.setPhone_customer(phone);
+        c.setAddress_customer(address);
+        return dao.updateCustomer(c);
     }
     // Xóa khách theo contract_id
     public boolean deleteCustomer(String contractID) {

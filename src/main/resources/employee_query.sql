@@ -24,14 +24,14 @@ WHERE id_employee = ?;
 -- thay đổi thông tin nhân viên
 
 UPDATE Employee
-SET name_employee = ?, phone_employee = ?, position_employee = ?
+SET name_employee = ?, phone_employee = ?, position_employee = ?, status_employee = ?
 WHERE id_employee = ?;
 
 -- tìm  nhân viên sđt, tên, quê 
 
   -- tìm theo số điện thoại
   SELECT * FROM Employee
-  WHERE phone_employee = ?;
+  WHERE id_employee = ? OR name_employee = ? OR phone_employee = ? OR position_employee = ?;
   
   -- tìm theo tên 
   
@@ -48,3 +48,9 @@ WHERE status_employee = 'active';
 SELECT *
 FROM Employee
 WHERE status_employee = 'inactive';
+
+-- lấy tài khoản của các nhân viên
+
+SELECT username, password
+FROM account 
+WHERE username = ? AND password = ?;

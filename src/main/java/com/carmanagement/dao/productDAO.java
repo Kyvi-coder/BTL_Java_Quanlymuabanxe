@@ -17,14 +17,7 @@ public class productDAO {
         String sql = "select * from product";
         try(Connection conn = DBConnection.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql); ResultSet rs = stmt.executeQuery()){
             while(rs.next()){
-                Product product = new Product();
-                product.setId_product(rs.getString("id_product"));
-                product.setName_product(rs.getString("name_product"));
-                product.setBrand_product(rs.getString("brand_product"));
-                product.setColor_product(rs.getString("color_product"));
-                product.setPrice_product(rs.getInt("price_product"));
-                product.setProduction_year_product(rs.getInt("production_year_product"));
-                products.add(product);
+                products.add(mapProduct(rs));
             }
         }catch (SQLException e){
             e.printStackTrace();
@@ -34,7 +27,7 @@ public class productDAO {
     // thêm xem mới
 
     public Boolean addNewProductWithVehicle(Product  product, String VIN){
-        String queryProduct = "INSERT INTO Product(id_product, name_product, brand_product, color_product, price_product, production_year_product) VALUES(?,?,?,?,?,?)";
+        String queryProduct = "INSERT INTO Product(id_product, name_product, brand_product, color_product, price_product, production_year_product, status_product) VALUES(?,?,?,?,?,?,?)";
         String queryVehicle = "INSERT INTO Vehicle(VIN, id_product) VALUES(?,?)";
         try(Connection conn = DBConnection.getConnection()){
             conn.setAutoCommit(false);
@@ -45,13 +38,16 @@ public class productDAO {
             stmt.setString(4, product.getColor_product());
             stmt.setInt(5, product.getPrice_product());
             stmt.setInt(6, product.getProduction_year_product());
+            stmt.setString(7, product.getStatus_product());
             stmt.executeUpdate();
 
             PreparedStatement stmt2 = conn.prepareStatement(queryVehicle);
             stmt2.setString(1, VIN);
+            stmt2.setString(2, product.getId_product());
             stmt2.executeUpdate();
 
             conn.commit();
+            return true;
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -105,14 +101,7 @@ public class productDAO {
             stmt.setString(1,"%" + brandProduct + "%");
             ResultSet rs = stmt.executeQuery();
             while(rs.next()){
-                Product product = new Product();
-                product.setId_product(rs.getString("id_product"));
-                product.setName_product(rs.getString("name_product"));
-                product.setBrand_product(rs.getString("brand_product"));
-                product.setColor_product(rs.getString("color_product"));
-                product.setPrice_product(rs.getInt("price_product"));
-                product.setProduction_year_product(rs.getInt("production_year_product"));
-                products.add(product);
+                products.add(mapProduct(rs));
             }
         }catch (SQLException e){
             e.printStackTrace();
@@ -129,14 +118,7 @@ public class productDAO {
             stmt.setString(1,IdProduct);
             ResultSet rs = stmt.executeQuery();
             while(rs.next()){
-                Product product = new Product();
-                product.setId_product(rs.getString("id_product"));
-                product.setName_product(rs.getString("name_product"));
-                product.setBrand_product(rs.getString("brand_product"));
-                product.setColor_product(rs.getString("color_product"));
-                product.setPrice_product(rs.getInt("price_product"));
-                product.setProduction_year_product(rs.getInt("production_year_product"));
-                products.add(product);
+                products.add(mapProduct(rs));
             }
         }catch (SQLException e){
             e.printStackTrace();
@@ -154,12 +136,7 @@ public class productDAO {
             stmt.setString(1, vin);
             ResultSet rs = stmt.executeQuery();
             if(rs.next()){
-                product.setId_product(rs.getString("id_product"));
-                product.setName_product(rs.getString("name_product"));
-                product.setBrand_product(rs.getString("brand_product"));
-                product.setColor_product(rs.getString("color_product"));
-                product.setPrice_product(rs.getInt("price_product"));
-                product.setProduction_year_product(rs.getInt("production_year_product"));
+                product = mapProduct(rs);
                 return product;
             }
         } catch (SQLException ex) {
@@ -231,7 +208,7 @@ public class productDAO {
 
     public Boolean updateProduct(Product product) {
         String query = "UPDATE Product \n" +
-                "SET name_product = ?, brand_product = ?, color_product = ? , price_product = ?, production_year_product = ?\n" +
+                "SET name_product = ?, brand_product = ?, color_product = ? , price_product = ?, production_year_product = ?, status_product = ?\n" +
                 "WHERE id_product = ?";
         try(Connection conn = DBConnection.getConnection();PreparedStatement stmt = conn.prepareStatement(query)){
             stmt.setString(1, product.getName_product());
@@ -239,6 +216,8 @@ public class productDAO {
             stmt.setString(3, product.getColor_product());
             stmt.setInt(4, product.getPrice_product());
             stmt.setInt(5, product.getProduction_year_product());
+            stmt.setString(6, product.getStatus_product());
+            stmt.setString(7, product.getId_product());
             return stmt.executeUpdate() > 0;
         }catch (SQLException e){
             e.printStackTrace();
@@ -276,19 +255,24 @@ public class productDAO {
                 ")";
         try(Connection conn = DBConnection.getConnection(); PreparedStatement stmt = conn.prepareStatement(query);ResultSet rs = stmt.executeQuery()){
             while(rs.next()){
-                Product product = new Product();
-                product.setId_product(rs.getString("id_product"));
-                product.setName_product(rs.getString("name_product"));
-                product.setBrand_product(rs.getString("brand_product"));
-                product.setColor_product(rs.getString("color_product"));
-                product.setPrice_product(rs.getInt("price_product"));
-                product.setProduction_year_product(rs.getInt("production_year_product"));
-                products.add(product);
+                products.add(mapProduct(rs));
 
             }
         }catch (SQLException e){
             e.printStackTrace();
         }
         return  products;
+    }
+
+    private Product mapProduct(ResultSet rs) throws SQLException {
+        Product product = new Product();
+        product.setId_product(rs.getString("id_product"));
+        product.setName_product(rs.getString("name_product"));
+        product.setBrand_product(rs.getString("brand_product"));
+        product.setColor_product(rs.getString("color_product"));
+        product.setPrice_product(rs.getInt("price_product"));
+        product.setProduction_year_product(rs.getInt("production_year_product"));
+        product.setStatus_product(rs.getString("status_product"));
+        return product;
     }
 }

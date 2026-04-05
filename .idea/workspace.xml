@@ -5,16 +5,65 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e212e10f-8f50-4e07-8b07-b42a716b7564" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/dao/warrantyDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/dao/invoiceDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/dao/invoiceDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/dao/DBConnection.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/dao/customerDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/dao/employeeDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/dao/productDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/entity/Customer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/entity/Employee.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/entity/Invoice.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/entity/Invoice_Detail.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/entity/Payment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/entity/Product.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/entity/Vehicle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/entity/Warranty.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/gui/BackgroundPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/gui/CarManagementFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/gui/DashboardFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/gui/LoginFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/service/LoginService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/org/example/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/dao/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/dao/DBConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/dao/customerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/dao/customerDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/dao/employeeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/dao/employeeDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/dao/productDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/dao/productDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/dao/warrantyDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/dao/warrantyDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/database/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/database/DBConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/entity/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/entity/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/entity/Vehicle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/entity/Warranty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/entity/Warranty.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/CustomerPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/CustomerPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/EmployeePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/EmployeePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/HomeFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/HomeFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/InventoryPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/InventoryPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/LoginFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/LoginFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/MainEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/MainEmployee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/SalesPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/SalesPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/WarrantyPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/WarrantyPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/service/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/service/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/service/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/service/EmployeeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/service/InventoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/service/InventoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/service/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/service/LoginService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/service/RevenueService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/service/RevenueService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/service/SaleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/service/SaleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/service/WarrantyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/service/WarrantyService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/create_table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/create_table.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/employee_query.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/employee_query.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/insert_data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/insert_data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/product_query.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/product_query.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="54" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -133,8 +182,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.31033.145" />
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.31033.145" />
+        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.32098.37" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.32098.37" />
       </set>
     </attachedChunks>
   </component>
@@ -162,10 +211,29 @@
       <workItem from="1773739497056" duration="22000" />
       <workItem from="1773746243438" duration="12829000" />
       <workItem from="1773796768830" duration="4096000" />
+      <workItem from="1775034654113" duration="14491000" />
+      <workItem from="1775057268783" duration="7508000" />
+      <workItem from="1775105229141" duration="6836000" />
+      <workItem from="1775317200599" duration="1217000" />
+      <workItem from="1775361042502" duration="9000" />
+      <workItem from="1775361063673" duration="38000" />
+      <workItem from="1775361112659" duration="485000" />
+      <workItem from="1775361729034" duration="22000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
