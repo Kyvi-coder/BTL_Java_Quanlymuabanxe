@@ -25,7 +25,7 @@ public class SalesPanel extends JPanel {
         setLayout(new BorderLayout());
         setBackground(Color.WHITE);
 
-        JLabel title = new JLabel("BAN XE", JLabel.CENTER);
+        JLabel title = new JLabel("BÁN XE", JLabel.CENTER);
         title.setFont(new Font("Arial", Font.BOLD, 24));
         title.setBorder(new EmptyBorder(10, 0, 10, 0));
 
@@ -72,50 +72,50 @@ public class SalesPanel extends JPanel {
 
     private JPanel createCustomerPanel() {
         JPanel panel = new JPanel(new GridLayout(6, 2, 5, 5));
-        panel.setBorder(BorderFactory.createTitledBorder("Thong tin khach hang"));
+        panel.setBorder(BorderFactory.createTitledBorder("Thông tin khách hàng"));
 
         txtName = new JTextField();
         txtPhone = new JTextField();
         txtAddress = new JTextField();
 
-        cbGender = new JComboBox<>(new String[]{"Nam", "Nu"});
-        cbCustomerType = new JComboBox<>(new String[]{"Khach moi", "Khach cu"});
+        cbGender = new JComboBox<>(new String[]{"Nam", "Nữ"});
+        cbCustomerType = new JComboBox<>(new String[]{"Khách mới", "Khách cũ"});
 
-        panel.add(new JLabel("Ten:"));
+        panel.add(new JLabel("Tên:"));
         panel.add(txtName);
-        panel.add(new JLabel("SDT:"));
+        panel.add(new JLabel("SĐT:"));
         panel.add(txtPhone);
-        panel.add(new JLabel("Dia chi:"));
+        panel.add(new JLabel("Địa chỉ:"));
         panel.add(txtAddress);
-        panel.add(new JLabel("Gioi tinh:"));
+        panel.add(new JLabel("Giới tính:"));
         panel.add(cbGender);
-        panel.add(new JLabel("Loai KH:"));
+        panel.add(new JLabel("Loại KH:"));
         panel.add(cbCustomerType);
-        panel.add(new JLabel("Ngay mua:"));
-        panel.add(new JLabel("Tu dong"));
+        panel.add(new JLabel("Ngày mua:"));
+        panel.add(new JLabel("Tự động"));
 
         return panel;
     }
 
     private JPanel createCarPanel() {
         JPanel panel = new JPanel(new GridLayout(5, 2, 5, 5));
-        panel.setBorder(BorderFactory.createTitledBorder("Thong tin xe"));
+        panel.setBorder(BorderFactory.createTitledBorder("Thông tin xe"));
 
         txtCarName = new JTextField();
         txtBrand = new JTextField();
         txtQuantity = new JTextField();
 
         cbWarranty = new JComboBox<>(new String[]{
-                "6 thang", "1 nam", "2 nam"
+                "6 tháng", "1 năm", "2 năm"
         });
 
-        panel.add(new JLabel("Ten xe:"));
+        panel.add(new JLabel("Tên xe:"));
         panel.add(txtCarName);
-        panel.add(new JLabel("Hang:"));
+        panel.add(new JLabel("Hãng:"));
         panel.add(txtBrand);
-        panel.add(new JLabel("So luong:"));
+        panel.add(new JLabel("Số lượng:"));
         panel.add(txtQuantity);
-        panel.add(new JLabel("Bao hanh:"));
+        panel.add(new JLabel("Bảo hành:"));
         panel.add(cbWarranty);
 
         return panel;
@@ -123,7 +123,7 @@ public class SalesPanel extends JPanel {
 
     private JPanel createEmployeePanel() {
         JPanel panel = new JPanel(new GridLayout(4, 2, 5, 5));
-        panel.setBorder(BorderFactory.createTitledBorder("Nhan vien"));
+        panel.setBorder(BorderFactory.createTitledBorder("Nhân viên"));
 
         txtEmpName = new JTextField();
         txtPosition = new JTextField();
@@ -135,11 +135,11 @@ public class SalesPanel extends JPanel {
 
         refreshCurrentEmployee();
 
-        panel.add(new JLabel("Ten NV:"));
+        panel.add(new JLabel("Tên NV:"));
         panel.add(txtEmpName);
-        panel.add(new JLabel("Chuc vu:"));
+        panel.add(new JLabel("Chức vụ:"));
         panel.add(txtPosition);
-        panel.add(new JLabel("SDT:"));
+        panel.add(new JLabel("SĐT:"));
         panel.add(txtEmpPhone);
 
         return panel;
@@ -149,16 +149,16 @@ public class SalesPanel extends JPanel {
         JPanel panel = new JPanel(new BorderLayout());
 
         JPanel form = new JPanel(new GridLayout(2, 2, 5, 5));
-        form.setBorder(BorderFactory.createTitledBorder("Thanh toan"));
+        form.setBorder(BorderFactory.createTitledBorder("Thanh toán"));
 
         cbPayment = new JComboBox<>(new String[]{
-                "Tien mat", "The", "Tra gop"
+                "Tiền mặt", "Thẻ", "Trả góp"
         });
 
-        form.add(new JLabel("Phuong thuc:"));
+        form.add(new JLabel("Phương thức:"));
         form.add(cbPayment);
 
-        JButton btnCreate = new JButton("Tao hop dong");
+        JButton btnCreate = new JButton("Tạo hợp đồng");
         btnCreate.addActionListener(e -> createOrder());
 
         panel.add(form, BorderLayout.CENTER);
@@ -183,6 +183,7 @@ public class SalesPanel extends JPanel {
             SaleService.SaleResult result = service.createFullOrder(
                     contractID,
                     currentEmployee != null ? currentEmployee.getId_employee() : null,
+                    currentEmployee,
                     txtName.getText().trim(),
                     txtPhone.getText().trim(),
                     txtAddress.getText().trim(),

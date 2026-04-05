@@ -1,6 +1,7 @@
 package com.carmanagement.service;
 
 import com.carmanagement.dao.DBConnection;
+import com.carmanagement.entity.Employee;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -13,10 +14,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SaleService {
+    private final AuditLogService auditLogService = new AuditLogService();
 
     public SaleResult createFullOrder(
             String contractID,
             String employeeID,
+            Employee actor,
             String customerName,
             String phone,
             String address,
@@ -57,6 +60,13 @@ public class SaleService {
             updateProductStatus(conn, product.idProduct(), remainingStock == 0 ? "Da ban" : "Chua ban");
 
             conn.commit();
+            auditLogService.log(
+                    actor,
+                    "SELL_CAR",
+                    "Invoice",
+                    contractID,
+                    "Ban " + quantity + " xe " + carName + " (" + brand + "), tong tien " + totalAmount
+            );
             return new SaleResult(contractID, customerID, availableVins, warrantyIds, totalAmount, remainingStock);
         } catch (Exception e) {
             try {

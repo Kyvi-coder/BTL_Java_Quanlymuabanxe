@@ -5,57 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e212e10f-8f50-4e07-8b07-b42a716b7564" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/dao/DBConnection.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/dao/customerDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/dao/employeeDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/dao/productDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/entity/Customer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/entity/Employee.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/entity/Invoice.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/entity/Invoice_Detail.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/entity/Payment.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/entity/Product.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/entity/Vehicle.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/entity/Warranty.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/gui/BackgroundPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/gui/CarManagementFrame.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/gui/DashboardFrame.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/gui/LoginFrame.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/com/carmanagement/service/LoginService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Quan_ly_mua_ban_xe/org/example/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/dao/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/dao/DBConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/dao/customerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/dao/customerDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/dao/employeeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/dao/employeeDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/dao/productDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/dao/productDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/dao/warrantyDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/dao/warrantyDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/database/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/database/DBConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/entity/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/entity/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/entity/Vehicle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/entity/Warranty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/entity/Warranty.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/dao/invoiceDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/dao/invoiceDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/BackgroundPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/BackgroundPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/CustomerPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/CustomerPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/EmployeePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/EmployeePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/HomeFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/HomeFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/InventoryPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/InventoryPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/LoginFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/LoginFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/MainEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/MainEmployee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/RevenuePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/RevenuePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/SalesPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/SalesPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/WarrantyPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/gui/WarrantyPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/service/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/service/CustomerService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/service/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/service/EmployeeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/service/InventoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/service/InventoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/service/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/service/LoginService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/service/RevenueService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/service/RevenueService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/service/SaleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/service/SaleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/carmanagement/service/WarrantyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/carmanagement/service/WarrantyService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/create_table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/create_table.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/employee_query.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/employee_query.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/insert_data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/insert_data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/product_query.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/product_query.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/drop_table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/drop_table.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,6 +94,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -174,8 +142,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.com.carmanagement.Main" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="Database Script.create_table.sql" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -219,6 +187,8 @@
       <workItem from="1775361063673" duration="38000" />
       <workItem from="1775361112659" duration="485000" />
       <workItem from="1775361729034" duration="22000" />
+      <workItem from="1775361764578" duration="385000" />
+      <workItem from="1775362168783" duration="7533000" />
     </task>
     <servers />
   </component>

@@ -1,6 +1,7 @@
 package com.carmanagement.gui;
 
 import com.carmanagement.entity.Customer;
+import com.carmanagement.entity.Employee;
 import com.carmanagement.service.CustomerService;
 
 import javax.swing.*;
@@ -16,8 +17,14 @@ public class CustomerPanel extends JPanel {
     DefaultTableModel model;
     JTextField txtSearch, txtName, txtPhone, txtAddress;
     CustomerService service = new CustomerService();
+    private final Employee currentEmployee;
 
     public CustomerPanel() {
+        this(null);
+    }
+
+    public CustomerPanel(Employee currentEmployee) {
+        this.currentEmployee = currentEmployee;
         setLayout(new BorderLayout(10,10));
         setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         add(createTopPanel(), BorderLayout.NORTH);
@@ -28,7 +35,7 @@ public class CustomerPanel extends JPanel {
 
     private JPanel createTopPanel() {
         JPanel panel = new JPanel(new BorderLayout());
-        JLabel title = new JLabel("QUAN LY KHACH HANG");
+        JLabel title = new JLabel("QUẢN LÝ KHÁCH HÀNG");
         title.setFont(new Font("Arial", Font.BOLD, 18));
 
         JPanel right = new JPanel();
@@ -54,7 +61,7 @@ public class CustomerPanel extends JPanel {
     }
 
     private JScrollPane createTablePanel() {
-        String[] cols = {"Ten KH", "SDT", "Ma KH", "Dia chi"};
+        String[] cols = {"Tên KH", "SĐT", "Mã KH", "Địa chỉ"};
         model = new DefaultTableModel(cols, 0);
         table = new JTable(model);
         table.setRowHeight(25);
@@ -71,15 +78,15 @@ public class CustomerPanel extends JPanel {
         txtPhone = new JTextField(12);
         txtAddress = new JTextField(16);
 
-        form.add(new JLabel("Ten KH:"));
+        form.add(new JLabel("Tên KH:"));
         form.add(txtName);
-        form.add(new JLabel("SDT:"));
+        form.add(new JLabel("SĐT:"));
         form.add(txtPhone);
-        form.add(new JLabel("Dia chi:"));
+        form.add(new JLabel("Địa chỉ:"));
         form.add(txtAddress);
 
         JPanel buttons = new JPanel();
-        JButton btnUpdate = new JButton("Cap nhat");
+        JButton btnUpdate = new JButton("Cập nhật");
         btnUpdate.addActionListener(e -> updateCustomer());
         buttons.add(btnUpdate);
 
@@ -156,7 +163,8 @@ public class CustomerPanel extends JPanel {
                 txtName.getText(),
                 txtPhone.getText(),
                 txtAddress.getText(),
-                customerID
+                customerID,
+                currentEmployee
         );
 
         if (ok) {

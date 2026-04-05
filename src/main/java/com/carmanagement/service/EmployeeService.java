@@ -8,6 +8,7 @@ import java.util.List;
 
 public class EmployeeService {
     private final employeeDAO employeeDao = new employeeDAO();
+    private final AuditLogService auditLogService = new AuditLogService();
 
     public List<Employee> getAllEmployees() {
         return employeeDao.getAllEmployees();
@@ -17,8 +18,7 @@ public class EmployeeService {
         return employeeDao.getEmployees(keyword);
     }
 
-    public boolean insertEmployee(String name, String phone, String position,
-                                  String status) {
+    public boolean insertEmployee(String name, String phone, String position, String status, Employee actor) {
         Employee employee = new Employee();
         employee.setId_employee("EMP" + System.currentTimeMillis());
         employee.setName_employee(name);
@@ -26,16 +26,38 @@ public class EmployeeService {
         employee.setPosition_employee(position);
         employee.setHiredate_employee(LocalDate.now());
         employee.setStatus_employee(status);
-        return employeeDao.insertEmployee(employee);
+
+        boolean inserted = employeeDao.insertEmployee(employee);
+        if (inserted) {
+            auditLogService.log(
+                    actor,
+                    "CREATE_EMPLOYEE",
+                    "Employee",
+                    employee.getId_employee(),
+                    "Them nhan vien: " + name + " - " + position + " - " + status
+            );
+        }
+        return inserted;
     }
 
-    public boolean updateEmployee(String id, String name, String phone, String position, String status) {
+    public boolean updateEmployee(String id, String name, String phone, String position, String status, Employee actor) {
         Employee employee = new Employee();
         employee.setId_employee(id);
         employee.setName_employee(name);
         employee.setPhone_employee(phone);
         employee.setPosition_employee(position);
         employee.setStatus_employee(status);
-        return employeeDao.updateEmployee(employee);
+
+        boolean updated = employeeDao.updateEmployee(employee);
+        if (updated) {
+            auditLogService.log(
+                    actor,
+                    "UPDATE_EMPLOYEE",
+                    "Employee",
+                    id,
+                    "Cap nhat nhan vien: " + name + " - " + position + " - " + status
+            );
+        }
+        return updated;
     }
 }

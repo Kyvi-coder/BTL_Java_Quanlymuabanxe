@@ -4,6 +4,7 @@ import com.carmanagement.entity.Warranty;
 import com.carmanagement.service.WarrantyService;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
@@ -28,14 +29,14 @@ public class WarrantyPanel extends JPanel {
 
     private JPanel titlePanel() {
         JPanel p = new JPanel();
-        JLabel title = new JLabel("QUAN LY BAO HANH");
+        JLabel title = new JLabel("QUẢN LÝ BẢO HÀNH");
         title.setFont(new Font("Arial", Font.BOLD, 18));
         p.add(title);
         return p;
     }
 
     private JScrollPane tablePanel() {
-        String[] cols = {"Ma BH", "Khach", "Xe", "VIN", "Ngay tao", "Ngay het han"};
+        String[] cols = {"Mã BH", "Khách", "Xe", "VIN", "Ngày tạo", "Ngày hết hạn"};
         model = new DefaultTableModel(cols, 0);
 
         table = new JTable(model);
@@ -45,7 +46,8 @@ public class WarrantyPanel extends JPanel {
     }
 
     private JPanel formPanel() {
-        JPanel p = new JPanel(new GridLayout(2, 5, 5, 5));
+        JPanel p = new JPanel(new BorderLayout(12, 12));
+        p.setBorder(new EmptyBorder(12, 12, 12, 12));
 
         txtCustomer = new JTextField();
         txtCustomer.setEditable(false);
@@ -61,22 +63,32 @@ public class WarrantyPanel extends JPanel {
             public void changedUpdate(DocumentEvent e) { fillInfoByVIN(); }
         });
 
-        JButton btnAdd = new JButton("Them bao hanh");
+        JButton btnAdd = new JButton("Thêm bảo hành");
         btnAdd.addActionListener(e -> addWarranty());
 
-        p.add(new JLabel("Khach"));
-        p.add(txtCustomer);
-        p.add(new JLabel("Xe"));
-        p.add(txtCar);
-        p.add(new JLabel("VIN"));
-        p.add(txtVIN);
-        p.add(new JLabel("Ngay bat dau"));
-        p.add(txtStart);
-        p.add(new JLabel("Ngay het han"));
-        p.add(txtEnd);
-        p.add(btnAdd);
+        JPanel fields = new JPanel(new GridLayout(1, 5, 12, 0));
+        fields.add(createFieldPanel("Khách", txtCustomer));
+        fields.add(createFieldPanel("Xe", txtCar));
+        fields.add(createFieldPanel("VIN", txtVIN));
+        fields.add(createFieldPanel("Ngày bắt đầu", txtStart));
+        fields.add(createFieldPanel("Ngày hết hạn", txtEnd));
+
+        JPanel actionPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT, 0, 0));
+        actionPanel.add(btnAdd);
+
+        p.add(fields, BorderLayout.CENTER);
+        p.add(actionPanel, BorderLayout.SOUTH);
 
         return p;
+    }
+
+    private JPanel createFieldPanel(String labelText, JTextField field) {
+        JPanel panel = new JPanel(new BorderLayout(0, 6));
+        JLabel label = new JLabel(labelText);
+        label.setFont(new Font("Arial", Font.BOLD, 13));
+        panel.add(label, BorderLayout.NORTH);
+        panel.add(field, BorderLayout.CENTER);
+        return panel;
     }
 
     private void loadData() {

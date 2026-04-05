@@ -44,7 +44,7 @@ public class EmployeePanel extends JPanel {
         JPanel p = new JPanel();
 
         txtSearch = new JTextField(20);
-        JButton btnSearch = new JButton("Tim");
+        JButton btnSearch = new JButton("Tìm");
         btnSearch.addActionListener(e -> search());
 
         txtSearch.getDocument().addDocumentListener(new DocumentListener() {
@@ -53,14 +53,14 @@ public class EmployeePanel extends JPanel {
             public void changedUpdate(DocumentEvent e) { search(); }
         });
 
-        p.add(new JLabel("Tim:"));
+        p.add(new JLabel("Tìm:"));
         p.add(txtSearch);
         p.add(btnSearch);
         return p;
     }
 
     private JScrollPane tablePanel() {
-        String[] cols = {"ID", "Ten", "SDT", "Chuc vu", "Ngay vao", "Trang thai"};
+        String[] cols = {"ID", "Tên", "SĐT", "Chức vụ", "Ngày vào", "Trạng thái"};
         model = new DefaultTableModel(cols, 0);
         table = new JTable(model);
         table.setRowHeight(25);
@@ -76,18 +76,18 @@ public class EmployeePanel extends JPanel {
         txtPosition = new JTextField();
         cbStatus = new JComboBox<>(new String[]{"active", "inactive"});
 
-        JButton btnAdd = new JButton("Them");
-        JButton btnUpdate = new JButton("Cap nhat");
+        JButton btnAdd = new JButton("Thêm");
+        JButton btnUpdate = new JButton("Cập nhật");
         btnAdd.addActionListener(e -> addEmployee());
         btnUpdate.addActionListener(e -> updateEmployee());
 
-        p.add(new JLabel("Ten"));
+        p.add(new JLabel("Tên"));
         p.add(txtName);
-        p.add(new JLabel("SDT"));
+        p.add(new JLabel("SĐT"));
         p.add(txtPhone);
-        p.add(new JLabel("Chuc vu"));
+        p.add(new JLabel("Chức vụ"));
         p.add(txtPosition);
-        p.add(new JLabel("Trang thai"));
+        p.add(new JLabel("Trạng thái"));
         p.add(cbStatus);
         p.add(btnAdd);
         p.add(btnUpdate);
@@ -155,7 +155,8 @@ public class EmployeePanel extends JPanel {
                 txtName.getText().trim(),
                 txtPhone.getText().trim(),
                 txtPosition.getText().trim(),
-                cbStatus.getSelectedItem().toString()
+                cbStatus.getSelectedItem().toString(),
+                currentEmployee
         );
 
         if (ok) {
@@ -180,7 +181,8 @@ public class EmployeePanel extends JPanel {
                 txtName.getText().trim(),
                 txtPhone.getText().trim(),
                 txtPosition.getText().trim(),
-                cbStatus.getSelectedItem().toString()
+                cbStatus.getSelectedItem().toString(),
+                currentEmployee
         );
 
         if (ok) {

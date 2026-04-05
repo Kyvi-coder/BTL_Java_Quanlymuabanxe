@@ -32,10 +32,10 @@ public class InventoryPanel extends JPanel {
         JPanel p = new JPanel();
 
         txtSearch = new JTextField(20);
-        JButton btnSearch = new JButton("Tim");
-        JButton btnSortBrand = new JButton("Sort hang");
-        JButton btnSortAsc = new JButton("Gia tang");
-        JButton btnSortDesc = new JButton("Gia giam");
+        JButton btnSearch = new JButton("Tìm");
+        JButton btnSortBrand = new JButton("Sort hãng");
+        JButton btnSortAsc = new JButton("Giá tăng");
+        JButton btnSortDesc = new JButton("Giá giảm");
 
         btnSearch.addActionListener(e -> search());
         btnSortBrand.addActionListener(e -> loadTable(service.sortByBrand()));
@@ -48,7 +48,7 @@ public class InventoryPanel extends JPanel {
             public void changedUpdate(DocumentEvent e) { search(); }
         });
 
-        p.add(new JLabel("Tim kiem:"));
+        p.add(new JLabel("Tìm kiếm:"));
         p.add(txtSearch);
         p.add(btnSearch);
         p.add(btnSortBrand);
@@ -59,7 +59,7 @@ public class InventoryPanel extends JPanel {
     }
 
     private JScrollPane tablePanel() {
-        String[] cols = {"VIN", "Ma san pham", "Ten xe", "Hang", "Mau", "Gia", "Nam san xuat", "Trang thai"};
+        String[] cols = {"VIN", "Mã sản phẩm", "Tên xe", "Hãng", "Mẫu", "Giá", "Năm sản xuất", "Trạng thái"};
 
         model = new DefaultTableModel(cols, 0);
         table = new JTable(model);
@@ -69,7 +69,7 @@ public class InventoryPanel extends JPanel {
 
     private JPanel bottomPanel() {
         JPanel wrapper = new JPanel(new BorderLayout(10, 10));
-        wrapper.setBorder(BorderFactory.createTitledBorder("Them xe moi"));
+        wrapper.setBorder(BorderFactory.createTitledBorder("Thêm xe mới"));
 
         JPanel form = new JPanel(new GridLayout(4, 4, 10, 10));
 
@@ -79,24 +79,24 @@ public class InventoryPanel extends JPanel {
         txtColor = new JTextField();
         txtPrice = new JTextField();
         txtYear = new JTextField();
-        cbStatus = new JComboBox<>(new String[]{"Chua ban", "Da ban", "Bao tri"});
+        cbStatus = new JComboBox<>(new String[]{"Chưa bán", "Đã bán", "Bảo trì"});
 
-        JButton btnAdd = new JButton("Them xe");
+        JButton btnAdd = new JButton("Thêm xe");
         btnAdd.addActionListener(e -> addCar());
 
         form.add(new JLabel("VIN"));
         form.add(txtVIN);
-        form.add(new JLabel("Ten xe"));
+        form.add(new JLabel("Tên xe"));
         form.add(txtName);
-        form.add(new JLabel("Hang"));
+        form.add(new JLabel("Hãng"));
         form.add(txtBrand);
-        form.add(new JLabel("Mau"));
+        form.add(new JLabel("Mẫu"));
         form.add(txtColor);
-        form.add(new JLabel("Gia"));
+        form.add(new JLabel("Giá"));
         form.add(txtPrice);
-        form.add(new JLabel("Nam san xuat"));
+        form.add(new JLabel("Năm sản xuất"));
         form.add(txtYear);
-        form.add(new JLabel("Trang thai"));
+        form.add(new JLabel("Trạng thái"));
         form.add(cbStatus);
 
         JPanel actions = new JPanel(new FlowLayout(FlowLayout.RIGHT));
@@ -175,6 +175,6 @@ public class InventoryPanel extends JPanel {
         txtColor.setText("");
         txtPrice.setText("");
         txtYear.setText("");
-        cbStatus.setSelectedItem("Chua ban");
+        cbStatus.setSelectedItem("Chưa bán");
     }
 }

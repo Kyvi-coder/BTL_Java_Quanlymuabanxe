@@ -1,0 +1,13 @@
+USE CAR_DATABASE;
+
+CREATE TABLE IF NOT EXISTS Audit_Log(
+id_log VARCHAR(15) PRIMARY KEY,
+actor_id VARCHAR(15),
+actor_name VARCHAR(50) NOT NULL,
+actor_role VARCHAR(20),
+action_type VARCHAR(50) NOT NULL,
+target_type VARCHAR(30) NOT NULL,
+target_id VARCHAR(30),
+details VARCHAR(255),
+created_at DATETIME NOT NULL
+);

@@ -2,8 +2,22 @@ package com.carmanagement.gui;
 
 import com.carmanagement.entity.Employee;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+import java.awt.Image;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -54,7 +68,6 @@ public class HomeFrame extends JFrame {
 
         panel.add(title, BorderLayout.CENTER);
         panel.add(rightPanel, BorderLayout.EAST);
-
         return panel;
     }
 
@@ -62,7 +75,7 @@ public class HomeFrame extends JFrame {
         JPanel sidebar = new JPanel();
         sidebar.setPreferredSize(new Dimension(200, 0));
         sidebar.setBackground(new Color(30, 50, 80));
-        sidebar.setLayout(new GridLayout(8, 1));
+        sidebar.setLayout(new GridLayout(9, 1));
 
         ImageIcon icon = new ImageIcon("src/main/resources/images/logo.png");
         Image img = icon.getImage().getScaledInstance(120, 70, Image.SCALE_SMOOTH);
@@ -78,6 +91,7 @@ public class HomeFrame extends JFrame {
         sidebar.add(createMenuButton("Bảo Hành", "warranty"));
         sidebar.add(createMenuButton("Nhân Viên", "employee"));
         sidebar.add(createMenuButton("Doanh Số", "revenue"));
+        sidebar.add(createMenuButton("Lịch Sử", "audit"));
 
         return sidebar;
     }
@@ -108,11 +122,12 @@ public class HomeFrame extends JFrame {
             return switch (panelName) {
                 case "dashboard" -> new DashboardPanel();
                 case "sales" -> new SalesPanel(currentEmployee);
-                case "customer" -> new CustomerPanel();
+                case "customer" -> new CustomerPanel(currentEmployee);
                 case "inventory" -> new InventoryPanel();
                 case "warranty" -> new WarrantyPanel();
                 case "employee" -> new EmployeePanel(currentEmployee, this::refreshCurrentEmployeeViews);
                 case "revenue" -> new RevenuePanel();
+                case "audit" -> new AuditLogPanel();
                 default -> createErrorPanel("Panel khong ton tai: " + panelName);
             };
         } catch (Exception ex) {
@@ -157,6 +172,10 @@ public class HomeFrame extends JFrame {
         }
         if (panel instanceof WarrantyPanel warrantyPanel) {
             warrantyPanel.refreshData();
+            return;
+        }
+        if (panel instanceof AuditLogPanel auditLogPanel) {
+            auditLogPanel.refreshData();
         }
     }
 
@@ -164,7 +183,7 @@ public class HomeFrame extends JFrame {
         int confirm = JOptionPane.showConfirmDialog(
                 this,
                 "You're sure?",
-                "Xác nhận",
+                "Xac nhan",
                 JOptionPane.YES_NO_OPTION
         );
 
