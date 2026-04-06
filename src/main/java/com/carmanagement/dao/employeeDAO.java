@@ -100,7 +100,7 @@ public class employeeDAO {
         }
         return false;
     }
-
+    // tìm nhân viên có id tên sđt chức vụ theo text
     public List<Employee> getEmployees(String name) {
         List<Employee> employees = new ArrayList<>();
         String query = "SELECT * FROM Employee WHERE id_employee LIKE ? OR name_employee LIKE ? OR phone_employee LIKE ? OR position_employee LIKE ?";
